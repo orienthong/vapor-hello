@@ -8,7 +8,7 @@ drop.get { _ in
         "message": "Hello, Vapor"
         ])
 }
-drop.get("Hello", "there") { request in // Hello/there
+drop.get("Helloa", "there") { request in // Hello/there
     return try JSON (node: [
         "message": "Hello Vappr ahh"
         ])
