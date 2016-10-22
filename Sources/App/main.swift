@@ -1,4 +1,5 @@
 import Vapor
+import Auth
 
 let drop = Droplet()
 
@@ -10,7 +11,7 @@ drop.get { _ in
 }
 drop.get("Helloa", "there") { request in // Hello/there
     return try JSON (node: [
-        "message": "Hello Vappr ahh"
+        "message": "Hello Vapor"
         ])
 }
 
