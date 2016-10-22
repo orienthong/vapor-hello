@@ -14,6 +14,11 @@ drop.get("Helloa", "there") { request in // Hello/there
         "message": "Hello Vapor"
         ])
 }
+drop.get("WWDC17") { request in
+    return try JSON (node: [
+        "message": "Hello WWDC17"
+        ])
+}
 
 drop.get("beers", Int.self) { request, beers in
     return try JSON(node: [
