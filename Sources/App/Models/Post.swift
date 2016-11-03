@@ -2,7 +2,7 @@ import Vapor
 import Fluent
 import Foundation
 
-final class Post: Model {
+final class User: Model {
     var id: Node?
     var content: String
     
@@ -24,7 +24,7 @@ final class Post: Model {
     }
 }
 
-extension Post {
+extension User {
     /**
         This will automatically fetch from database, using example here to load
         automatically for example. Remove on real models.
@@ -34,12 +34,18 @@ extension Post {
     }
 }
 
-extension Post: Preparation {
+// This is what the SQL does
+extension User: Preparation {
     static func prepare(_ database: Database) throws {
         //
+        try database.create("users", closure: { users in
+            users.id()
+            users.string("name")
+        })
     }
 
     static func revert(_ database: Database) throws {
         //
+        try database.delete("users")
     }
 }
