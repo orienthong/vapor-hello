@@ -5,9 +5,7 @@ let drop = Droplet()
 
 drop.get { _ in
     //return "Hello Vapor"
-    return try JSON(node: [
-        "message": "Hello, Vapor"
-        ])
+    return try drop.view.make("welcome")
 }
 drop.get("Helloa", "there") { request in // Hello/there
     return try JSON (node: [
